@@ -9,23 +9,34 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0; /* Set your desired background color */
+      background-color: #121212; /* Dark background color */
+      color: #fff; /* Light text color */
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.light-mode {
+      background-color: #f0f0f0; /* Light background color */
+      color: #121212; /* Dark text color */
     }
 
     #resume-container {
-      background-color: white;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
       padding: 20px;
-      width: 8.5in; /* Width of a standard letter-size paper */
-      height: 11in; /* Height of a standard letter-size paper */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow for visual effect */
+      width: 8.5in;
+      height: 11in;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s;
     }
 
     h1, h2 {
       margin-bottom: 5px;
+      color: #bb86fc;
     }
 
     ul {
@@ -36,12 +47,28 @@
     div {
       margin-bottom: 20px;
     }
+
+    a {
+      color: #64ffda;
+    }
+
+    #toggle-mode-btn {
+      background-color: #008080; /* Teal background color */
+      color: #f0f0f0;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #toggle-mode-btn:hover {
+      background-color: #006666; /* Darker teal on hover */
+      color: #f0f0f0;
+    }
   </style>
-  <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
 </head>
-<body>
+<body class="dark-mode">
 
   <div id="resume-container">
 
@@ -96,7 +123,7 @@
 
     <!-- Projects -->
     <div>
-      <h2>Projects</h2>
+      <h2>Lore</h2>
       <p><strong>lore</strong> | CSS</p>
       <p>lore</p>
     </div>
@@ -104,6 +131,15 @@
     <!-- Additional Sections... -->
 
   </div>
+
+  <!-- Toggle Mode Button -->
+  <button id="toggle-mode-btn" onclick="toggleDarkMode()">Toggle Light Mode</button>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
 
 </body>
 </html>
